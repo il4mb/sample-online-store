@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css --watch"
   }
 }
