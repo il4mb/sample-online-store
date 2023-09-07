@@ -8514,7 +8514,7 @@ exports.default = (0, _vueRouter.createRouter)({
     ]
 });
 
-},{"vue-router":"c18b3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/home.vue":"iE4sr","a99ea333837db3cf":"fHfl0"}],"c18b3":[function(require,module,exports) {
+},{"vue-router":"c18b3","./views/home.vue":"iE4sr","a99ea333837db3cf":"fHfl0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c18b3":[function(require,module,exports) {
 /*!
   * vue-router v4.2.4
   * (c) 2023 Eduardo San Martin Morote
@@ -11729,8 +11729,11 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
+const _hoisted_1 = {
+    class: "text-2xl"
+};
 function render(_ctx, _cache) {
-    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("h2", null, "About");
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("h2", _hoisted_1, "Home");
 }
 if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("1e651d-hmr", render);
