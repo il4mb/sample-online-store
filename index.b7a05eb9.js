@@ -576,14 +576,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"jeorp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
-var _inputCss = require("./assets/input.css");
 var _appVue = require("./app.vue");
 var _appVueDefault = parcelHelpers.interopDefault(_appVue);
 var _router = require("./router");
 var _routerDefault = parcelHelpers.interopDefault(_router);
 (0, _vue.createApp)((0, _appVueDefault.default)).use((0, _routerDefault.default)).mount("#app");
 
-},{"vue":"gzxs9","./app.vue":"jD53V","./router":"4QFWt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./assets/input.css":"460yU"}],"gzxs9":[function(require,module,exports) {
+},{"vue":"gzxs9","./app.vue":"jD53V","./router":"4QFWt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gzxs9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "compile", ()=>compile);
@@ -8426,7 +8425,6 @@ let script;
 let initialize = ()=>{
     script = {};
     script.render = require("81fd775c51795f57").render;
-    script.__cssModules = require("d4022c3d196d88f0").default;
     require("2ceb760a84a28b50").default(script);
     script.__scopeId = "data-v-228073";
     script.__file = "G:\\node-project\\sample-online-store\\src\\app.vue";
@@ -8443,20 +8441,22 @@ if (module.hot) {
 }
 exports.default = script;
 
-},{"81fd775c51795f57":"9upZ0","d4022c3d196d88f0":"2DYKi","2ceb760a84a28b50":"2ii7L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9upZ0":[function(require,module,exports) {
+},{"81fd775c51795f57":"9upZ0","2ceb760a84a28b50":"2ii7L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9upZ0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
 const _hoisted_1 = {
-    class: "navbar"
+    class: "bg-gray-800 text-white"
 };
 const _hoisted_2 = {
-    class: "container"
+    class: "flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14"
 };
-const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("span", null, "Sample Online Store", -1 /* HOISTED */ );
+const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("span", {
+    class: "text-2xl font-bold text-white"
+}, "Online Store", -1 /* HOISTED */ );
 const _hoisted_4 = {
-    class: "nav-links"
+    class: "ms-auto"
 };
 function render(_ctx, _cache) {
     const _component_router_link = (0, _vue.resolveComponent)("router-link");
@@ -8474,7 +8474,8 @@ function render(_ctx, _cache) {
                 }),
                 (0, _vue.createElementVNode)("div", _hoisted_4, [
                     (0, _vue.createVNode)(_component_router_link, {
-                        to: "/"
+                        to: "/",
+                        class: "mx-3"
                     }, {
                         default: (0, _vue.withCtx)(()=>[
                                 (0, _vue.createTextVNode)("Home")
@@ -8482,7 +8483,8 @@ function render(_ctx, _cache) {
                         _: 1 /* STABLE */ 
                     }),
                     (0, _vue.createVNode)(_component_router_link, {
-                        to: "/about"
+                        to: "/about",
+                        class: "mx-3"
                     }, {
                         default: (0, _vue.withCtx)(()=>[
                                 (0, _vue.createTextVNode)("About")
@@ -8501,7 +8503,7 @@ if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("228073-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2DYKi":[function() {},{}],"2ii7L":[function(require,module,exports) {
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ii7L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
@@ -11742,24 +11744,26 @@ exports.default = script;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
+const link = "https://mock.shop/api?query={products(first:%2020){edges%20{node%20{id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}";
 exports.default = (0, _vue.defineComponent)({
     data () {
         return {
-            count: 2,
             products: Array()
         };
     },
-    mounted () {
-        fetch("https://mock.shop/api?query={products(first:%2020){edges%20{node%20{id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}").then((response)=>response.json()).then((source)=>{
+    created () {
+        fetch(link).then((res)=>res.json()).then((source)=>{
             this.products = Array();
-            for (let data of source.data.products.edges)this.products.push({
-                id: data.node.id,
-                title: data.node.title,
-                description: data.node.description,
-                price: data.node.variants.edges[0].node.price.amount,
-                currency: data.node.variants.edges[0].node.price.currencyCode,
-                image: data.node.featuredImage.url
-            });
+            for(let i = 0; i < source.data.products.edges.length; i++){
+                let data = source.data.products.edges[i];
+                this.products.push({
+                    id: data.node.id,
+                    title: data.node.title,
+                    description: data.node.description,
+                    featuredImage: data.node.featuredImage,
+                    variants: data.node.variants
+                });
+            }
         });
     }
 });
@@ -11794,16 +11798,9 @@ const _hoisted_7 = {
 const _hoisted_8 = {
     class: "text-sm text-gray-700"
 };
-const _hoisted_9 = /*#__PURE__*/ (0, _vue.createElementVNode)("span", {
-    "aria-hidden": "true",
-    class: "absolute inset-0"
-}, null, -1 /* HOISTED */ );
-const _hoisted_10 = {
-    class: "mt-1 text-sm text-gray-500"
-};
-const _hoisted_11 = {
-    class: "text-sm font-medium text-gray-900"
-};
+const _hoisted_9 = [
+    "innerHTML"
+];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, [
         (0, _vue.createElementVNode)("div", _hoisted_2, [
@@ -11816,7 +11813,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     }, [
                         (0, _vue.createElementVNode)("div", _hoisted_5, [
                             (0, _vue.createElementVNode)("img", {
-                                src: product.image,
+                                src: product.featuredImage.url,
                                 alt: product.title,
                                 class: "h-full w-full object-cover object-center lg:h-full lg:w-full"
                             }, null, 8 /* PROPS */ , _hoisted_6)
@@ -11824,12 +11821,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                         (0, _vue.createElementVNode)("div", _hoisted_7, [
                             (0, _vue.createElementVNode)("div", null, [
                                 (0, _vue.createElementVNode)("h3", _hoisted_8, [
-                                    _hoisted_9,
+                                    (0, _vue.createElementVNode)("span", {
+                                        "aria-hidden": "true",
+                                        class: "absolute inset-0",
+                                        innerHTML: product.variants.edges.length + " Variants"
+                                    }, null, 8 /* PROPS */ , _hoisted_9),
                                     (0, _vue.createTextVNode)(" " + (0, _vue.toDisplayString)(product.title), 1 /* TEXT */ )
-                                ]),
-                                (0, _vue.createElementVNode)("p", _hoisted_10, (0, _vue.toDisplayString)(product.id), 1 /* TEXT */ )
-                            ]),
-                            (0, _vue.createElementVNode)("p", _hoisted_11, (0, _vue.toDisplayString)(product.price), 1 /* TEXT */ )
+                                ])
+                            ])
                         ])
                     ]);
                 }), 128 /* KEYED_FRAGMENT */ ))
@@ -11841,7 +11840,7 @@ if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("1e651d-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBv7w":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","vue":"gzxs9"}],"eBv7w":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
@@ -11950,6 +11949,6 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"460yU":[function() {},{}]},["fUTXd","jeorp"], "jeorp", "parcelRequire995f")
+},{}]},["fUTXd","jeorp"], "jeorp", "parcelRequire995f")
 
 //# sourceMappingURL=index.b7a05eb9.js.map
