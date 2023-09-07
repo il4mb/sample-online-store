@@ -8425,7 +8425,6 @@ let script;
 let initialize = ()=>{
     script = {};
     script.render = require("81fd775c51795f57").render;
-    script.__cssModules = require("d4022c3d196d88f0").default;
     require("2ceb760a84a28b50").default(script);
     script.__scopeId = "data-v-228073";
     script.__file = "G:\\node-project\\sample-online-store\\src\\app.vue";
@@ -8442,42 +8441,58 @@ if (module.hot) {
 }
 exports.default = script;
 
-},{"81fd775c51795f57":"9upZ0","d4022c3d196d88f0":"2DYKi","2ceb760a84a28b50":"2ii7L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9upZ0":[function(require,module,exports) {
+},{"81fd775c51795f57":"9upZ0","2ceb760a84a28b50":"2ii7L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9upZ0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
+const _hoisted_1 = {
+    class: "bg-gray-800 text-white"
+};
+const _hoisted_2 = {
+    class: "flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14"
+};
+const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("span", {
+    class: "text-2xl font-bold text-white"
+}, "Online Store", -1 /* HOISTED */ );
+const _hoisted_4 = {
+    class: "ms-auto"
+};
 function render(_ctx, _cache) {
     const _component_router_link = (0, _vue.resolveComponent)("router-link");
     const _component_router_view = (0, _vue.resolveComponent)("router-view");
     return (0, _vue.openBlock)(), (0, _vue.createElementBlock)((0, _vue.Fragment), null, [
-        (0, _vue.createElementVNode)("nav", null, [
-            (0, _vue.createVNode)(_component_router_link, {
-                to: "/"
-            }, {
-                default: (0, _vue.withCtx)(()=>[
-                        (0, _vue.createTextVNode)("Home")
-                    ]),
-                _: 1 /* STABLE */ 
-            }),
-            (0, _vue.createTextVNode)(" | "),
-            (0, _vue.createVNode)(_component_router_link, {
-                to: "/about"
-            }, {
-                default: (0, _vue.withCtx)(()=>[
-                        (0, _vue.createTextVNode)("About")
-                    ]),
-                _: 1 /* STABLE */ 
-            }),
-            (0, _vue.createTextVNode)(" | "),
-            (0, _vue.createVNode)(_component_router_link, {
-                to: "/contact"
-            }, {
-                default: (0, _vue.withCtx)(()=>[
-                        (0, _vue.createTextVNode)("Contact")
-                    ]),
-                _: 1 /* STABLE */ 
-            })
+        (0, _vue.createElementVNode)("nav", _hoisted_1, [
+            (0, _vue.createElementVNode)("div", _hoisted_2, [
+                (0, _vue.createVNode)(_component_router_link, {
+                    to: "/"
+                }, {
+                    default: (0, _vue.withCtx)(()=>[
+                            _hoisted_3
+                        ]),
+                    _: 1 /* STABLE */ 
+                }),
+                (0, _vue.createElementVNode)("div", _hoisted_4, [
+                    (0, _vue.createVNode)(_component_router_link, {
+                        to: "/",
+                        class: "mx-3"
+                    }, {
+                        default: (0, _vue.withCtx)(()=>[
+                                (0, _vue.createTextVNode)("Home")
+                            ]),
+                        _: 1 /* STABLE */ 
+                    }),
+                    (0, _vue.createVNode)(_component_router_link, {
+                        to: "/about",
+                        class: "mx-3"
+                    }, {
+                        default: (0, _vue.withCtx)(()=>[
+                                (0, _vue.createTextVNode)("About")
+                            ]),
+                        _: 1 /* STABLE */ 
+                    })
+                ])
+            ])
         ]),
         (0, _vue.createElementVNode)("main", null, [
             (0, _vue.createVNode)(_component_router_view)
@@ -8488,7 +8503,7 @@ if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("228073-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2DYKi":[function() {},{}],"2ii7L":[function(require,module,exports) {
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2ii7L":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
@@ -11706,7 +11721,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let script;
 let initialize = ()=>{
-    script = {};
+    script = require("fdab51db6ab5df7c");
+    if (script.__esModule) script = script.default;
     script.render = require("e00475d5c090e4b7").render;
     require("827c4805b3c0f399").default(script);
     script.__scopeId = "data-v-1e651d";
@@ -11724,22 +11740,107 @@ if (module.hot) {
 }
 exports.default = script;
 
-},{"e00475d5c090e4b7":"gi6bK","827c4805b3c0f399":"eBv7w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gi6bK":[function(require,module,exports) {
+},{"fdab51db6ab5df7c":"fa8d1","e00475d5c090e4b7":"gi6bK","827c4805b3c0f399":"eBv7w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fa8d1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vue = require("vue");
+const link = "https://mock.shop/api?query={products(first:%2020){edges%20{node%20{id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}";
+exports.default = (0, _vue.defineComponent)({
+    data () {
+        return {
+            products: Array()
+        };
+    },
+    created () {
+        fetch(link).then((res)=>res.json()).then((source)=>{
+            this.products = Array();
+            for(let i = 0; i < source.data.products.edges.length; i++){
+                let data = source.data.products.edges[i];
+                this.products.push({
+                    id: data.node.id,
+                    title: data.node.title,
+                    description: data.node.description,
+                    featuredImage: data.node.featuredImage,
+                    variants: data.node.variants
+                });
+            }
+        });
+    }
+});
+
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gi6bK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
 const _hoisted_1 = {
-    class: "text-2xl"
+    class: "bg-white"
 };
-function render(_ctx, _cache) {
-    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("h2", _hoisted_1, "Home");
+const _hoisted_2 = {
+    class: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
+};
+const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("h2", {
+    class: "text-2xl font-bold tracking-tight text-gray-900"
+}, "Customers also purchased", -1 /* HOISTED */ );
+const _hoisted_4 = {
+    class: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+};
+const _hoisted_5 = {
+    class: "aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+};
+const _hoisted_6 = [
+    "src",
+    "alt"
+];
+const _hoisted_7 = {
+    class: "mt-4 flex justify-between"
+};
+const _hoisted_8 = {
+    class: "text-sm text-gray-700"
+};
+const _hoisted_9 = [
+    "innerHTML"
+];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, [
+        (0, _vue.createElementVNode)("div", _hoisted_2, [
+            _hoisted_3,
+            (0, _vue.createElementVNode)("div", _hoisted_4, [
+                ((0, _vue.openBlock)(true), (0, _vue.createElementBlock)((0, _vue.Fragment), null, (0, _vue.renderList)(_ctx.products, (product)=>{
+                    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", {
+                        key: product.id,
+                        class: "group relative"
+                    }, [
+                        (0, _vue.createElementVNode)("div", _hoisted_5, [
+                            (0, _vue.createElementVNode)("img", {
+                                src: product.featuredImage.url,
+                                alt: product.title,
+                                class: "h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            }, null, 8 /* PROPS */ , _hoisted_6)
+                        ]),
+                        (0, _vue.createElementVNode)("div", _hoisted_7, [
+                            (0, _vue.createElementVNode)("div", null, [
+                                (0, _vue.createElementVNode)("h3", _hoisted_8, [
+                                    (0, _vue.createElementVNode)("span", {
+                                        "aria-hidden": "true",
+                                        class: "absolute inset-0",
+                                        innerHTML: product.variants.edges.length + " Variants"
+                                    }, null, 8 /* PROPS */ , _hoisted_9),
+                                    (0, _vue.createTextVNode)(" " + (0, _vue.toDisplayString)(product.title), 1 /* TEXT */ )
+                                ])
+                            ])
+                        ])
+                    ]);
+                }), 128 /* KEYED_FRAGMENT */ ))
+            ])
+        ])
+    ]);
 }
 if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("1e651d-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBv7w":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","vue":"gzxs9"}],"eBv7w":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
