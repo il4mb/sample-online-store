@@ -1,10 +1,7 @@
-const app = document.getElementById('vue-app')
+import { createApp } from 'vue'
 
 const options = {
-    target: app,
-    props: {
-        message: 'Hello World'
-    }
+   
 }
 
-new Vue(options).$mount(app)
+createApp(options).mount("#vue-app")

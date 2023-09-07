@@ -1,8 +1,25 @@
 {
   "dependencies": {
-    "tailwindcss": "^3.3.3"
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "vue": "^3.3.4"
   },
   "scripts": {
-    "build": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css --watch"
-  }
+    "tailwind:build": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css",
+    "tailwind:watch": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css --watch"
+  },
+  "name": "sample-online-store",
+  "version": "1.0.0",
+  "description": "This is sample online store web application build by using vue, tailiwind, and typscript",
+  "main": "index.html",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "keywords": [
+    "online",
+    "store",
+    "sample"
+  ],
+  "author": "il4mb",
+  "license": "ISC"
 }

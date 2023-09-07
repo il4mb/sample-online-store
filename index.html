@@ -12,26 +12,40 @@
 <body>
 
     <div id="vue-app">
-        <div class="bg-white">
+
+        <template v-if="loading">
+            <div class="fixed flex items-center justify-center top-0 left-0 w-full h-full">
+                <div role="status" class="flex text-gray-500">
+                    <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Processing...
+                </div>
+            </div>
+        </template>
+
+        <div class="bg-white" :class="{ 'max-h-screen': selected, 'blur-sm': selected, 'overflow-hidden' : selected }">
+
             <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
 
                 <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    <div v-for="product in products" :key="product.id" class="group relative">
-
+                    <div v-for="product in products" :key="product.id" class="group relative"
+                        @click="selected = product">
                         <div
                             class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                            <img :src="product.image" :alt="product.imageAlt"
+                            <img :src="product.image" :alt="product.title"
                                 class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
                         </div>
                         <div class="mt-4 flex justify-between">
                             <div>
                                 <h3 class="text-sm text-gray-700">
                                     <a :href="product.href">
-                                        <span aria-hidden="true" class="absolute inset-0" />
+                                        <span aria-hidden="true" class="" />
                                         {{ product.title }}
                                     </a>
                                 </h3>
+                                <p class="mt-1 text-sm text-gray-500">{{ product.category }}</p>
                             </div>
                             <p class="text-sm font-medium text-gray-900">{{ product.price }}</p>
                         </div>
@@ -39,28 +53,70 @@
                 </div>
             </div>
         </div>
+
+        <div v-if="selected" class="fixed top-0 right-0 w-full max-w-2xl h-full bg-white">
+
+            <button class="absolute top-5 right-5 text-gray-400 hover:text-gray-500"
+                @click="selected = false">Close</button>
+            <div class="bg-gray-200 h-1/2">
+                <img :src="selected.image" alt="Img" class="bg-gray-200 h-full w-full object-contain object-center">
+            </div>
+
+            <article class="p-5">
+                <header class="mb-3">
+                    <h3 class="text-xl">{{ selected.title }}</h3>
+                    <div class="py-3">
+                        <span>Description</span>
+                        <p class="text-gray-500">{{ selected.description }}</p>
+                    </div>
+                </header>
+                <section>
+                    <span class="font-md text-lg">{{ selected.price }}</span>
+                </section>
+            </article>
+
+        </div>
     </div>
 
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-
+   <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>--> 
+   <script src="./assets/app.js" type="module"></script>
+   
+  <!--  <script>
         const options = {
             data() {
                 return {
-                    products: []
+                    loading: true,
+                    products: [],
+                    selected: false
                 }
             },
 
             mounted() {
-                fetch('https://fakestoreapi.com/products')
-                    .then(res => res.json())
-                    .then(json => { this.products = json; })
+
+                fetch("https://mock.shop/api?query={products(first:%2020){edges%20{node%20{id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%203){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}")
+                    .then((request) => request.json())
+                    .then((json) => {
+
+                        this.products = [];
+                        for (let i = 0; i < json.data.products.edges.length; i++) {
+                            this.products.push({
+
+                                id: json.data.products.edges[i].node.id,
+                                title: json.data.products.edges[i].node.title,
+                                description: json.data.products.edges[i].node.description,
+                                image: json.data.products.edges[i].node.featuredImage.url,
+                                price: "$" + json.data.products.edges[i].node.variants.edges[0].node.price.amount + " " + json.data.products.edges[i].node.variants.edges[0].node.price.currencyCode
+
+                            });
+                        }
+
+                        this.loading = false;
+                    });
             }
         }
         Vue.createApp(options).mount('#vue-app')
 
-    </script>
+    </script>-->
 </body>
 
 </html>
