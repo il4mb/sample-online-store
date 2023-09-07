@@ -574,43 +574,15 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"jeorp":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vue = require("vue");
-var _vueRouter = require("vue-router");
-// 1. Define route components.
-// These can be imported from other files
-const Home = {
-    template: "<div>Home</div>"
-};
-const About = {
-    template: "<div>About</div>"
-};
-// 2. Define some routes
-// Each route should map to a component.
-// We'll talk about nested routes later.
-const routes = [
-    {
-        path: "/",
-        component: Home
-    },
-    {
-        path: "/about",
-        component: About
-    }
-];
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
-const router = (0, _vueRouter.createRouter)({
-    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-    history: (0, _vueRouter.createWebHashHistory)(),
-    routes
-});
-const config = {};
-const app = (0, _vue.createApp)(config);
-app.use(router);
-app.mount("#app");
+var _appVue = require("./app.vue");
+var _appVueDefault = parcelHelpers.interopDefault(_appVue);
+var _router = require("./router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
+(0, _vue.createApp)((0, _appVueDefault.default)).use((0, _routerDefault.default)).mount("#app");
 
-},{"vue":"gzxs9","vue-router":"c18b3"}],"gzxs9":[function(require,module,exports) {
+},{"vue":"gzxs9","./app.vue":"jD53V","./router":"4QFWt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gzxs9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "compile", ()=>compile);
@@ -8446,7 +8418,115 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"c18b3":[function(require,module,exports) {
+},{}],"jD53V":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = {};
+    script.render = require("81fd775c51795f57").render;
+    script.__cssModules = require("d4022c3d196d88f0").default;
+    require("2ceb760a84a28b50").default(script);
+    script.__scopeId = "data-v-228073";
+    script.__file = "G:\\node-project\\sample-online-store\\src\\app.vue";
+};
+initialize();
+if (module.hot) {
+    script.__hmrId = "228073-hmr";
+    module.hot.accept(()=>{
+        setTimeout(()=>{
+            initialize();
+            if (!__VUE_HMR_RUNTIME__.createRecord("228073-hmr", script)) __VUE_HMR_RUNTIME__.reload("228073-hmr", script);
+        }, 0);
+    });
+}
+exports.default = script;
+
+},{"81fd775c51795f57":"9upZ0","d4022c3d196d88f0":"2DYKi","2ceb760a84a28b50":"2ii7L","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9upZ0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "render", ()=>render);
+var _vue = require("vue");
+const _hoisted_1 = {
+    class: "navbar"
+};
+const _hoisted_2 = {
+    class: "container"
+};
+const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("span", null, "Sample Online Store", -1 /* HOISTED */ );
+const _hoisted_4 = {
+    class: "nav-links"
+};
+function render(_ctx, _cache) {
+    const _component_router_link = (0, _vue.resolveComponent)("router-link");
+    const _component_router_view = (0, _vue.resolveComponent)("router-view");
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)((0, _vue.Fragment), null, [
+        (0, _vue.createElementVNode)("nav", _hoisted_1, [
+            (0, _vue.createElementVNode)("div", _hoisted_2, [
+                (0, _vue.createVNode)(_component_router_link, {
+                    to: "/"
+                }, {
+                    default: (0, _vue.withCtx)(()=>[
+                            _hoisted_3
+                        ]),
+                    _: 1 /* STABLE */ 
+                }),
+                (0, _vue.createElementVNode)("div", _hoisted_4, [
+                    (0, _vue.createVNode)(_component_router_link, {
+                        to: "/"
+                    }, {
+                        default: (0, _vue.withCtx)(()=>[
+                                (0, _vue.createTextVNode)("Home")
+                            ]),
+                        _: 1 /* STABLE */ 
+                    }),
+                    (0, _vue.createVNode)(_component_router_link, {
+                        to: "/about"
+                    }, {
+                        default: (0, _vue.withCtx)(()=>[
+                                (0, _vue.createTextVNode)("About")
+                            ]),
+                        _: 1 /* STABLE */ 
+                    })
+                ])
+            ])
+        ]),
+        (0, _vue.createElementVNode)("main", null, [
+            (0, _vue.createVNode)(_component_router_view)
+        ])
+    ], 64 /* STABLE_FRAGMENT */ );
+}
+if (module.hot) module.hot.accept(()=>{
+    __VUE_HMR_RUNTIME__.rerender("228073-hmr", render);
+});
+
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2DYKi":[function() {},{}],"2ii7L":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4QFWt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vueRouter = require("vue-router");
+var _homeVue = require("./views/home.vue");
+var _homeVueDefault = parcelHelpers.interopDefault(_homeVue);
+exports.default = (0, _vueRouter.createRouter)({
+    history: (0, _vueRouter.createWebHistory)(),
+    routes: [
+        {
+            path: "/",
+            component: (0, _homeVueDefault.default)
+        },
+        {
+            path: "/about",
+            component: ()=>require("a99ea333837db3cf")
+        }
+    ]
+});
+
+},{"vue-router":"c18b3","./views/home.vue":"iE4sr","a99ea333837db3cf":"fHfl0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c18b3":[function(require,module,exports) {
 /*!
   * vue-router v4.2.4
   * (c) 2023 Eduardo San Martin Morote
@@ -11633,6 +11713,150 @@ function now() {
     return isPerformanceSupported() ? perf.now() : Date.now();
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fUTXd","jeorp"], "jeorp", "parcelRequire995f")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iE4sr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = {};
+    script.render = require("e00475d5c090e4b7").render;
+    require("827c4805b3c0f399").default(script);
+    script.__scopeId = "data-v-1e651d";
+    script.__file = "G:\\node-project\\sample-online-store\\src\\views\\home.vue";
+};
+initialize();
+if (module.hot) {
+    script.__hmrId = "1e651d-hmr";
+    module.hot.accept(()=>{
+        setTimeout(()=>{
+            initialize();
+            if (!__VUE_HMR_RUNTIME__.createRecord("1e651d-hmr", script)) __VUE_HMR_RUNTIME__.reload("1e651d-hmr", script);
+        }, 0);
+    });
+}
+exports.default = script;
+
+},{"e00475d5c090e4b7":"gi6bK","827c4805b3c0f399":"eBv7w","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gi6bK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "render", ()=>render);
+var _vue = require("vue");
+function render(_ctx, _cache) {
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("h2", null, "About");
+}
+if (module.hot) module.hot.accept(()=>{
+    __VUE_HMR_RUNTIME__.rerender("1e651d-hmr", render);
+});
+
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eBv7w":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fHfl0":[function(require,module,exports) {
+module.exports = require("a5b6dc42ecf7d9ca")(require("b1948e54356bec91").getBundleURL("aNMIV") + "about.81983c08.js" + "?" + Date.now()).catch((err)=>{
+    delete module.bundle.cache[module.id];
+    throw err;
+}).then(()=>module.bundle.root("4CkWB"));
+
+},{"a5b6dc42ecf7d9ca":"61B45","b1948e54356bec91":"lgJ39"}],"61B45":[function(require,module,exports) {
+"use strict";
+var cacheLoader = require("ca2a84f7fa4a3bb0");
+module.exports = cacheLoader(function(bundle) {
+    return new Promise(function(resolve, reject) {
+        // Don't insert the same script twice (e.g. if it was already in the HTML)
+        var existingScripts = document.getElementsByTagName("script");
+        if ([].concat(existingScripts).some(function isCurrentBundle(script) {
+            return script.src === bundle;
+        })) {
+            resolve();
+            return;
+        }
+        var preloadLink = document.createElement("link");
+        preloadLink.href = bundle;
+        preloadLink.rel = "preload";
+        preloadLink.as = "script";
+        document.head.appendChild(preloadLink);
+        var script = document.createElement("script");
+        script.async = true;
+        script.type = "text/javascript";
+        script.src = bundle;
+        script.onerror = function(e) {
+            var error = new TypeError("Failed to fetch dynamically imported module: ".concat(bundle, ". Error: ").concat(e.message));
+            script.onerror = script.onload = null;
+            script.remove();
+            reject(error);
+        };
+        script.onload = function() {
+            script.onerror = script.onload = null;
+            resolve();
+        };
+        document.getElementsByTagName("head")[0].appendChild(script);
+    });
+});
+
+},{"ca2a84f7fa4a3bb0":"j49pS"}],"j49pS":[function(require,module,exports) {
+"use strict";
+var cachedBundles = {};
+var cachedPreloads = {};
+var cachedPrefetches = {};
+function getCache(type) {
+    switch(type){
+        case "preload":
+            return cachedPreloads;
+        case "prefetch":
+            return cachedPrefetches;
+        default:
+            return cachedBundles;
+    }
+}
+module.exports = function(loader, type) {
+    return function(bundle) {
+        var cache = getCache(type);
+        if (cache[bundle]) return cache[bundle];
+        return cache[bundle] = loader.apply(null, arguments).catch(function(e) {
+            delete cache[bundle];
+            throw e;
+        });
+    };
+};
+
+},{}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}]},["fUTXd","jeorp"], "jeorp", "parcelRequire995f")
 
 //# sourceMappingURL=index.b7a05eb9.js.map
