@@ -1,11 +1,12 @@
-import './assets/main.css'
-
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
 
-const app = createApp(App)
+const config = {
+    data() {
+        return {
+            products: []
+        }
+    }
+}
 
-app.use(router)
-
+const app = createApp(config);
 app.mount('#app')

@@ -1,26 +1,19 @@
 {
-  "name": "sample-online-store",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
-  },
-  "dependencies": {
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
-  },
-  "devDependencies": {
-    "@tsconfig/node18": "^18.2.0",
-    "@types/node": "^18.17.5",
-    "@vitejs/plugin-vue": "^4.3.1",
-    "@vue/tsconfig": "^0.4.0",
-    "npm-run-all": "^4.1.5",
-    "typescript": "~5.1.6",
-    "vite": "^4.4.9",
-    "vue-tsc": "^1.8.8"
-  }
+    "name": "sample-online-store",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "start": "parcel serve src/index.html",
+        "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+        "deploy": "gh-pages -d dist"
+    },
+    "devDependencies": {
+        "cross-env": "^5.2.0",
+        "gh-pages": "^6.0.0",
+        "parcel": "^2.0.0",
+        "typescript": "^2.9.2"
+    },
+    "dependencies": {
+        "vue": "^3.3.4"
+    }
 }
