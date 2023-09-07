@@ -1,25 +1,26 @@
 {
-  "dependencies": {
-    "@headlessui/vue": "^1.7.16",
-    "@heroicons/vue": "^2.0.18",
-    "vue": "^3.3.4"
-  },
-  "scripts": {
-    "tailwind:build": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css",
-    "tailwind:watch": "tailwindcss -i ./assets/input.css -o ./assets/css/output.css --watch"
-  },
   "name": "sample-online-store",
-  "version": "1.0.0",
-  "description": "This is sample online store web application build by using vue, tailiwind, and typscript",
-  "main": "index.html",
-  "devDependencies": {
-    "tailwindcss": "^3.3.3"
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
-  "keywords": [
-    "online",
-    "store",
-    "sample"
-  ],
-  "author": "il4mb",
-  "license": "ISC"
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.0",
+    "@types/node": "^18.17.5",
+    "@vitejs/plugin-vue": "^4.3.1",
+    "@vue/tsconfig": "^0.4.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "~5.1.6",
+    "vite": "^4.4.9",
+    "vue-tsc": "^1.8.8"
+  }
 }
