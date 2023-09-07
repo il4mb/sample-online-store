@@ -1,12 +1,5 @@
 import { createApp } from 'vue'
+import App from './app.vue'
+import router from './router'
 
-const config = {
-    data() {
-        return {
-            products: []
-        }
-    }
-}
-
-const app = createApp(config);
-app.mount('#app')
+createApp(App).use(router).mount('#app') 
