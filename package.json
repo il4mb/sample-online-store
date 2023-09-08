@@ -4,7 +4,7 @@
     "description": "",
     "scripts": {
         "start": "parcel serve src/index.html",
-        "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url .",
+        "build": "cross-env NODE_ENV=production parcel build src/index.html --public-url ./sample-online-store/",
         "deploy": "gh-pages -d dist",
         "tailwind:watch": "npx tailwindcss -i ./src/assets/index.css -o ./src/assets/css/styles.css --watch",
         "tailwind:build": "npx tailwindcss -i ./src/assets/index.css -o ./src/assets/css/styles.css"
