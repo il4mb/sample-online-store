@@ -2,8 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+.navbar-menu {
+  @apply transition-all duration-500 fixed top-0 right-0 z-50 w-full max-w-[0px] bg-white text-slate-800 h-full shadow-md;
+}
+.navbar-menu a {
+  @apply block px-4 py-2 mb-2 min-w-max text-[1.2rem] hover:scale-110 transition-transform hover:text-gray-800 hover:bg-white;
+}
+
+@screen md {
+  .navbar-menu {
+    @apply flex relative text-current bg-transparent ms-auto max-w-max w-auto shadow-none py-5 my-0;
+  }
+  .navbar-menu a {
+    @apply flex items-center text-[1rem];
+  }
+  .navbar-menu a > svg {
+    @apply mx-3;
+  }
+}
+
+.navbar-menu.show {
+  @apply max-w-[250px];
+}
+
 .fadeGroup-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in 0.5s;
 }
 .fadeGroup-leave-active {
   display: none;

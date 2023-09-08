@@ -1,5 +1,5 @@
 <template>
-    <div ref="el" class="bg-white max-h-screen" :class="{ 'blur-sm overflow-y-hidden': selected, 'overflow-y-scroll' : !selected }">
+    <div class="bg-white max-h-screen mt-12" :class="{ 'blur-sm overflow-y-hidden': selected, 'overflow-y-scroll' : !selected }">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 
             <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>

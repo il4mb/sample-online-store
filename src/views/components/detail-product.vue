@@ -67,7 +67,7 @@
                 </div>
 
             </section>
-            <button class="absolute top-[15px] right-[40px] text-[1.5rem] opacity-40 hover:opacity-100 text-red-600"
+            <button class="absolute top-[15px] right-[15px] sm:right-[40px] text-[1.5rem] opacity-40 hover:opacity-100 text-red-600"
                 @click="close">
                 <font-awesome-icon icon="times" />
             </button>
