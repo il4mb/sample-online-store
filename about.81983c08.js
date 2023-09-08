@@ -601,14 +601,26 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
+const _hoisted_1 = {
+    class: "container"
+};
+const _hoisted_2 = /*#__PURE__*/ (0, _vue.createElementVNode)("h2", null, "About", -1 /* HOISTED */ );
+const _hoisted_3 = /*#__PURE__*/ (0, _vue.createElementVNode)("article", null, [
+    /*#__PURE__*/ (0, _vue.createElementVNode)("header"),
+    /*#__PURE__*/ (0, _vue.createElementVNode)("section")
+], -1 /* HOISTED */ );
+const _hoisted_4 = [
+    _hoisted_2,
+    _hoisted_3
+];
 function render(_ctx, _cache) {
-    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("h2", null, "About");
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, _hoisted_4);
 }
 if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("4c7014-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fzfW5":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","vue":"gzxs9"}],"fzfW5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};

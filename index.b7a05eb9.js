@@ -32822,6 +32822,10 @@ parcelHelpers.defineInteropFlag(exports);
 var _vueRouter = require("vue-router");
 var _homeVue = require("./views/home.vue");
 var _homeVueDefault = parcelHelpers.interopDefault(_homeVue);
+var _aboutVue = require("./views/about.vue");
+var _aboutVueDefault = parcelHelpers.interopDefault(_aboutVue);
+var _cartVue = require("./views/cart.vue");
+var _cartVueDefault = parcelHelpers.interopDefault(_cartVue);
 exports.default = (0, _vueRouter.createRouter)({
     history: (0, _vueRouter.createWebHistory)(),
     routes: [
@@ -32830,13 +32834,17 @@ exports.default = (0, _vueRouter.createRouter)({
             component: (0, _homeVueDefault.default)
         },
         {
+            path: "/cart",
+            component: (0, _cartVueDefault.default)
+        },
+        {
             path: "/about",
-            component: ()=>require("a99ea333837db3cf")
+            component: (0, _aboutVueDefault.default)
         }
     ]
 });
 
-},{"vue-router":"c18b3","./views/home.vue":"iE4sr","a99ea333837db3cf":"fHfl0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c18b3":[function(require,module,exports) {
+},{"vue-router":"c18b3","./views/home.vue":"iE4sr","./views/about.vue":"4CkWB","./views/cart.vue":"hnCdh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c18b3":[function(require,module,exports) {
 /*!
   * vue-router v4.2.4
   * (c) 2023 Eduardo San Martin Morote
@@ -36495,110 +36503,134 @@ parcelHelpers.defineInteropFlag(exports);
 let NOOP = ()=>{};
 exports.default = (script)=>{};
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fHfl0":[function(require,module,exports) {
-module.exports = require("a5b6dc42ecf7d9ca")(require("b1948e54356bec91").getBundleURL("aNMIV") + "about.81983c08.js" + "?" + Date.now()).catch((err)=>{
-    delete module.bundle.cache[module.id];
-    throw err;
-}).then(()=>module.bundle.root("4CkWB"));
-
-},{"a5b6dc42ecf7d9ca":"61B45","b1948e54356bec91":"lgJ39"}],"61B45":[function(require,module,exports) {
-"use strict";
-var cacheLoader = require("ca2a84f7fa4a3bb0");
-module.exports = cacheLoader(function(bundle) {
-    return new Promise(function(resolve, reject) {
-        // Don't insert the same script twice (e.g. if it was already in the HTML)
-        var existingScripts = document.getElementsByTagName("script");
-        if ([].concat(existingScripts).some(function isCurrentBundle(script) {
-            return script.src === bundle;
-        })) {
-            resolve();
-            return;
-        }
-        var preloadLink = document.createElement("link");
-        preloadLink.href = bundle;
-        preloadLink.rel = "preload";
-        preloadLink.as = "script";
-        document.head.appendChild(preloadLink);
-        var script = document.createElement("script");
-        script.async = true;
-        script.type = "text/javascript";
-        script.src = bundle;
-        script.onerror = function(e) {
-            var error = new TypeError("Failed to fetch dynamically imported module: ".concat(bundle, ". Error: ").concat(e.message));
-            script.onerror = script.onload = null;
-            script.remove();
-            reject(error);
-        };
-        script.onload = function() {
-            script.onerror = script.onload = null;
-            resolve();
-        };
-        document.getElementsByTagName("head")[0].appendChild(script);
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4CkWB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = {};
+    script.render = require("42e3aac878c49f89").render;
+    require("22a2e9c0ea1fa237").default(script);
+    script.__scopeId = "data-v-4c7014";
+    script.__file = "G:\\node-project\\sample-online-store\\src\\views\\about.vue";
+};
+initialize();
+if (module.hot) {
+    script.__hmrId = "4c7014-hmr";
+    module.hot.accept(()=>{
+        setTimeout(()=>{
+            initialize();
+            if (!__VUE_HMR_RUNTIME__.createRecord("4c7014-hmr", script)) __VUE_HMR_RUNTIME__.reload("4c7014-hmr", script);
+        }, 0);
     });
+}
+exports.default = script;
+
+},{"42e3aac878c49f89":"jkAjO","22a2e9c0ea1fa237":"fzfW5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jkAjO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "render", ()=>render);
+var _vue = require("vue");
+const _hoisted_1 = {
+    class: "bg-white max-h-screen mt-12"
+};
+const _hoisted_2 = /*#__PURE__*/ (0, _vue.createElementVNode)("div", {
+    class: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
+}, [
+    /*#__PURE__*/ (0, _vue.createElementVNode)("article", null, [
+        /*#__PURE__*/ (0, _vue.createElementVNode)("header", null, [
+            /*#__PURE__*/ (0, _vue.createElementVNode)("h1", {
+                class: "text-3xl text-gray-800 text-center"
+            }, "About")
+        ]),
+        /*#__PURE__*/ (0, _vue.createElementVNode)("section", {
+            class: "text-gray-600 p-3 py-14 text-center"
+        }, [
+            /*#__PURE__*/ (0, _vue.createElementVNode)("p", null, "Online store applications in motion with Vue Js, TypeScript, Tailwind Css, Parcel, and using FontAwesome")
+        ])
+    ])
+], -1 /* HOISTED */ );
+const _hoisted_3 = [
+    _hoisted_2
+];
+function render(_ctx, _cache) {
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, _hoisted_3);
+}
+if (module.hot) module.hot.accept(()=>{
+    __VUE_HMR_RUNTIME__.rerender("4c7014-hmr", render);
 });
 
-},{"ca2a84f7fa4a3bb0":"j49pS"}],"j49pS":[function(require,module,exports) {
-"use strict";
-var cachedBundles = {};
-var cachedPreloads = {};
-var cachedPrefetches = {};
-function getCache(type) {
-    switch(type){
-        case "preload":
-            return cachedPreloads;
-        case "prefetch":
-            return cachedPrefetches;
-        default:
-            return cachedBundles;
-    }
-}
-module.exports = function(loader, type) {
-    return function(bundle) {
-        var cache = getCache(type);
-        if (cache[bundle]) return cache[bundle];
-        return cache[bundle] = loader.apply(null, arguments).catch(function(e) {
-            delete cache[bundle];
-            throw e;
-        });
-    };
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fzfW5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hnCdh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let script;
+let initialize = ()=>{
+    script = {};
+    script.render = require("aeccc33bc237105c").render;
+    require("abffcd6e34402035").default(script);
+    script.__scopeId = "data-v-3a86fe";
+    script.__file = "G:\\node-project\\sample-online-store\\src\\views\\cart.vue";
 };
+initialize();
+if (module.hot) {
+    script.__hmrId = "3a86fe-hmr";
+    module.hot.accept(()=>{
+        setTimeout(()=>{
+            initialize();
+            if (!__VUE_HMR_RUNTIME__.createRecord("3a86fe-hmr", script)) __VUE_HMR_RUNTIME__.reload("3a86fe-hmr", script);
+        }, 0);
+    });
+}
+exports.default = script;
 
-},{}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
+},{"aeccc33bc237105c":"5WrwO","abffcd6e34402035":"1lUqS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5WrwO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "render", ()=>render);
+var _vue = require("vue");
+const _hoisted_1 = {
+    class: "bg-white max-h-screen mt-12"
+};
+const _hoisted_2 = {
+    class: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
+};
+const _hoisted_3 = {
+    class: "text-center py-14"
+};
+const _hoisted_4 = /*#__PURE__*/ (0, _vue.createElementVNode)("h1", {
+    class: "text-3xl text-gray-800"
+}, "There are no products", -1 /* HOISTED */ );
+function render(_ctx, _cache) {
+    const _component_font_awesome_icon = (0, _vue.resolveComponent)("font-awesome-icon");
+    return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", _hoisted_1, [
+        (0, _vue.createElementVNode)("div", _hoisted_2, [
+            (0, _vue.createElementVNode)("div", _hoisted_3, [
+                (0, _vue.createVNode)(_component_font_awesome_icon, {
+                    class: "text-[4rem] mb-3 text-gray-500 -rotate-[35deg]",
+                    icon: "cart-shopping"
+                }),
+                _hoisted_4
+            ])
+        ])
+    ]);
 }
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
+if (module.hot) module.hot.accept(()=>{
+    __VUE_HMR_RUNTIME__.rerender("3a86fe-hmr", render);
+});
 
-},{}],"5NhFn":[function(require,module,exports) {
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1lUqS":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5NhFn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
