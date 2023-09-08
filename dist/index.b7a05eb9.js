@@ -11810,13 +11810,13 @@ if (module.hot) {
 }
 exports.default = script;
 
-},{"a6d35d1bf56ae486":"khrTD","d8cded3a308d25a7":"0AIR5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","bccc259d9dfd6ff2":"6H2KQ"}],"khrTD":[function(require,module,exports) {
+},{"a6d35d1bf56ae486":"khrTD","bccc259d9dfd6ff2":"6H2KQ","d8cded3a308d25a7":"0AIR5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"khrTD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _vue = require("vue");
 var _fontawesomeSvgCore = require("@fortawesome/fontawesome-svg-core");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-(0, _fontawesomeSvgCore.library).add((0, _freeSolidSvgIcons.faMinus), (0, _freeSolidSvgIcons.faPlus));
+(0, _fontawesomeSvgCore.library).add((0, _freeSolidSvgIcons.faMinus), (0, _freeSolidSvgIcons.faPlus), (0, _freeSolidSvgIcons.faTimes));
 exports.default = (0, _vue.defineComponent)({
     props: {
         product: Object
@@ -11828,14 +11828,15 @@ exports.default = (0, _vue.defineComponent)({
             subTotal: 0
         };
     },
+    created () {},
     methods: {
         addQty () {
             if (this.qty < 10) this.qty++;
-            this.subTotal = this.qty * this.selected.node.price.amount;
+            this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
         },
         subQty () {
             if (this.qty > 1) this.qty--;
-            this.subTotal = this.qty * this.selected.node.price.amount;
+            this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
         },
         close () {
             this.selected = {};
@@ -11867,7 +11868,7 @@ exports.default = (0, _vue.defineComponent)({
             handler (newProduct, oldProduct) {
                 // Reset the selected data property when the product prop changes
                 this.selected = this.product.variants.edges[0];
-                this.subTotal = this.qty * this.selected.node.price.amount;
+                this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
                 this.qty = 1;
             }
         }
@@ -36103,25 +36104,20 @@ var icons = {
     faLevelUpAlt: faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"0AIR5":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-let NOOP = ()=>{};
-exports.default = (script)=>{};
-
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6H2KQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
 var _vue = require("vue");
 const _hoisted_1 = {
-    class: "fixed bottom-0 right-0 w-full h-full max-w-2xl bg-white z-20 shadow-lg"
+    class: "fixed bottom-0 right-0 w-full h-full max-w-[680px] bg-white z-20 shadow-lg"
 };
 const _hoisted_2 = {
     class: "overflow-auto h-full"
 };
 const _hoisted_3 = [
-    "src"
+    "src",
+    "onClick"
 ];
 const _hoisted_4 = {
     class: "p-4 text-gray-600"
@@ -36186,29 +36182,32 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             (0, _vue.createVNode)((0, _vue.TransitionGroup), {
                 name: "fadeGroup",
                 tag: "ul",
-                class: "bg-gray-200 overflow-hidden w-full aspect-square p-3 px-5 h-[50vh] relative"
+                class: "bg-gray-200 grid grid-rows-3 md:grid-rows-2 grid-cols-2 md:grid-cols-3 gap-3 p-3 h-fit max-h-[70vh] overflow-hidden"
             }, {
                 default: (0, _vue.withCtx)(()=>[
                         ((0, _vue.openBlock)(true), (0, _vue.createElementBlock)((0, _vue.Fragment), null, (0, _vue.renderList)(_ctx.getVariants(), (item, x)=>{
                             return (0, _vue.openBlock)(), (0, _vue.createElementBlock)("div", {
                                 class: (0, _vue.normalizeClass)([
-                                    "aspect-square transition-all duration-700 delay-0 w-[160px] h-[160px]",
+                                    "transition-all duration-500",
                                     {
-                                        "w-[350px] h-[350px]": _ctx.selected === item,
-                                        "absolute right-[50px] opacity-[0.75]": _ctx.selected !== item
+                                        "row-span-2 col-span-4 md:col-span-2": _ctx.selected === item,
+                                        "opacity-[0.75] row-span-1 col-span-1 md:col-span-1": _ctx.selected !== item
                                     }
                                 ]),
-                                key: item,
-                                style: (0, _vue.normalizeStyle)({
-                                    top: (x - 1 <= 0 ? 25 : 200 * (x - 1)) + "px"
-                                })
+                                key: item
                             }, [
                                 (0, _vue.createElementVNode)("img", {
                                     src: item.node.image.url,
                                     alt: "",
-                                    class: "w-full h-full object-contain object-center"
-                                }, null, 8 /* PROPS */ , _hoisted_3)
-                            ], 6 /* CLASS, STYLE */ );
+                                    class: (0, _vue.normalizeClass)([
+                                        "w-full h-full object-contain object-center",
+                                        {
+                                            "hover:scale-105": _ctx.selected !== item
+                                        }
+                                    ]),
+                                    onClick: ($event)=>_ctx.selected = item
+                                }, null, 10 /* CLASS, PROPS */ , _hoisted_3)
+                            ], 2 /* CLASS */ );
                         }), 128 /* KEYED_FRAGMENT */ ))
                     ]),
                 _: 1 /* STABLE */ 
@@ -36283,7 +36282,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                                 (0, _vue.createElementVNode)("span", _hoisted_19, [
                                     (0, _vue.createElementVNode)("span", {
                                         class: "text-gray-600 font-bold text-lg",
-                                        innerHTML: _ctx.subTotal
+                                        innerHTML: "$" + _ctx.subTotal
                                     }, null, 8 /* PROPS */ , _hoisted_20)
                                 ])
                             ])
@@ -36293,9 +36292,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 ])
             ]),
             (0, _vue.createElementVNode)("button", {
-                class: "absolute top-0 right-0 opacity-40 hover:opacity-100 px-3 py-2 mr-5 mt-5 rounded-md shadow-md bg-red-200 text-red-600",
+                class: "absolute top-[15px] right-[40px] text-[1.5rem] opacity-40 hover:opacity-100 text-red-600",
                 onClick: _cache[2] || (_cache[2] = (...args)=>_ctx.close && _ctx.close(...args))
-            }, "Close")
+            }, [
+                (0, _vue.createVNode)(_component_font_awesome_icon, {
+                    icon: "times"
+                })
+            ])
         ])
     ]);
 }
@@ -36303,7 +36306,13 @@ if (module.hot) module.hot.accept(()=>{
     __VUE_HMR_RUNTIME__.rerender("b29bad-hmr", render);
 });
 
-},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gi6bK":[function(require,module,exports) {
+},{"vue":"gzxs9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"0AIR5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+let NOOP = ()=>{};
+exports.default = (script)=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gi6bK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "render", ()=>render);
@@ -36346,10 +36355,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_detail_product = (0, _vue.resolveComponent)("detail-product");
     return (0, _vue.openBlock)(), (0, _vue.createElementBlock)((0, _vue.Fragment), null, [
         (0, _vue.createElementVNode)("div", {
+            ref: "el",
             class: (0, _vue.normalizeClass)([
-                "bg-white",
+                "bg-white max-h-screen",
                 {
-                    "blur-sm": _ctx.selected
+                    "blur-sm overflow-y-hidden": _ctx.selected,
+                    "overflow-y-scroll": !_ctx.selected
                 }
             ])
         }, [

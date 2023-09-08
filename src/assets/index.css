@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-.fadeGroup-enter-active,
-.fadeGroup-leave-active {
-  transition: all 0.5s ease;
+.fadeGroup-enter-active {
+  animation: bounce-in .5s;
 }
-.fadeGroup-enter-from,
-.fadeGroup-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
+.fadeGroup-leave-active {
+  display: none;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

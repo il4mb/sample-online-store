@@ -1,16 +1,16 @@
 <template>
-    <div class="fixed bottom-0 right-0 w-full h-full max-w-2xl bg-white z-20 shadow-lg">
+    <div class="fixed bottom-0 right-0 w-full h-full max-w-[680px] bg-white z-20 shadow-lg">
 
         <article class="overflow-auto h-full">
 
             <TransitionGroup name="fadeGroup" tag="ul"
-                class="bg-gray-200 overflow-hidden w-full aspect-square p-3 px-5 h-[50vh] relative">
+                class="bg-gray-200 grid grid-rows-3 md:grid-rows-2 grid-cols-2 md:grid-cols-3 gap-3 p-3 h-fit max-h-[70vh] overflow-hidden">
 
-                <div class="aspect-square transition-all duration-700 delay-0 w-[160px] h-[160px]" v-for="item, x in getVariants()" :key="item"
-                    :class="{ 'w-[350px] h-[350px]': selected === item, 'absolute right-[50px] opacity-[0.75]': selected !== item }"
-                    v-bind:style="{ top: (x - 1 <= 0 ? 25 : (25 + 175) * (x - 1)) + 'px' }">
+                <div class="transition-all duration-500" v-for="item, x in getVariants()" :key="item"
+                    :class="{ 'row-span-2 col-span-4 md:col-span-2': selected === item, 'opacity-[0.75] row-span-1 col-span-1 md:col-span-1': selected !== item }">
 
-                    <img :src="item.node.image.url" alt="" class="w-full h-full object-contain object-center">
+                    <img :src="item.node.image.url" alt="" class="w-full h-full object-contain object-center"
+                        @click="selected = item" :class="{ 'hover:scale-105': selected !== item }">
 
                 </div>
 
@@ -56,7 +56,7 @@
                             <div class="p-2 w-full sm:w-1/2 md:w-100 text-left sm:text-center">
                                 <span class="text-gray-600 font-bold text-lg">Subtotal</span>
                                 <span class="ms-3">
-                                    <span class="text-gray-600 font-bold text-lg" v-html="subTotal"></span>
+                                    <span class="text-gray-600 font-bold text-lg" v-html="'$' + subTotal"></span>
                                 </span>
                             </div>
                         </div>
@@ -67,9 +67,10 @@
                 </div>
 
             </section>
-            <button
-                class="absolute top-0 right-0 opacity-40 hover:opacity-100 px-3 py-2 mr-5 mt-5 rounded-md shadow-md bg-red-200 text-red-600"
-                @click="close">Close</button>
+            <button class="absolute top-[15px] right-[40px] text-[1.5rem] opacity-40 hover:opacity-100 text-red-600"
+                @click="close">
+                <font-awesome-icon icon="times" />
+            </button>
         </article>
     </div>
 </template>
@@ -79,9 +80,9 @@
 
 import { defineComponent } from 'vue';
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faMinus, faPlus);
+library.add(faMinus, faPlus, faTimes);
 
 export default defineComponent({
 
@@ -97,19 +98,22 @@ export default defineComponent({
         }
     },
 
+    created() {
+    },
+
     methods: {
         addQty() {
-            if(this.qty < 10) {
+            if (this.qty < 10) {
                 this.qty++;
             }
-            this.subTotal = this.qty * this.selected.node.price.amount;
+            this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
         },
         subQty() {
 
-            if(this.qty > 1) {
+            if (this.qty > 1) {
                 this.qty--;
             }
-            this.subTotal = this.qty * this.selected.node.price.amount;
+            this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
         },
         close() {
             this.selected = {}
@@ -154,7 +158,7 @@ export default defineComponent({
             handler(newProduct, oldProduct) {
                 // Reset the selected data property when the product prop changes
                 this.selected = this.product.variants.edges[0];
-                this.subTotal = this.qty * this.selected.node.price.amount;
+                this.subTotal = Number(this.qty * this.selected.node.price.amount).toFixed(1);
                 this.qty = 1;
             },
         }
